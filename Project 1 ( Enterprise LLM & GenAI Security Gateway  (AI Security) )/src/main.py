@@ -2,27 +2,44 @@ from security_gateway import SecurityGateway
 
 gateway = SecurityGateway()
 
-prompt = input("Enter Prompt: ")
+while True:
 
-findings = gateway.detect_pii(prompt)
+    print("\n===== Enterprise LLM Security Gateway =====")
+    print("1. Analyze Prompt")
+    print("2. Exit")
 
-prompt_findings = gateway.detect_prompt_injection(prompt)
+    choice = input("Enter Choice: ")
 
-findings.extend(prompt_findings)
+    if choice == "1":
 
-sanitized = gateway.sanitize_prompt(prompt)
+        prompt = input("\nEnter Prompt: ")
 
-print("\n===== Security Analysis =====")
+        findings = gateway.detect_pii(prompt)
 
-if findings:
-    for item in findings:
-        print("✓", item)
-else:
-    print("No sensitive data detected")
+        prompt_findings = gateway.detect_prompt_injection(prompt)
 
-print("\n===== Sanitized Prompt =====")
-print(sanitized)
+        findings.extend(prompt_findings)
 
-gateway.save_log(prompt, sanitized, findings)
+        sanitized = gateway.sanitize_prompt(prompt)
 
-print("\nAudit log saved successfully.")
+        print("\n===== Security Analysis =====")
+
+        if findings:
+            for item in findings:
+                print("✓", item)
+        else:
+            print("No security issues detected")
+
+        print("\n===== Sanitized Prompt =====")
+        print(sanitized)
+
+        gateway.save_log(prompt, sanitized, findings)
+
+        print("\nAudit log saved successfully.")
+
+    elif choice == "2":
+        print("Exiting Security Gateway...")
+        break
+
+    else:
+        print("Invalid Choice")
