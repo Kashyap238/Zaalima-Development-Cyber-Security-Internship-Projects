@@ -1,25 +1,21 @@
 # Week 1 Progress Report
 
-## Completed
+## Objectives
 
-- Team Formation
-- GitHub Repository Setup
-- Project Selection
-- Repository Structure Creation
-- Requirement Analysis
-- Technology Research
+* Team Formation
+* Repository Setup
+* Project Understanding
+* Requirement Analysis
 
-## In Progress
+## Completed Tasks
 
-- Project 1 Architecture Design
-- Development Environment Setup
+* Team members finalized
+* GitHub repository created
+* Project requirements reviewed
+* Technology stack identified
 
-## Challenges
+## Deliverables
 
-- Limited team availability
-
-## Next Steps
-
-- Begin Project 1 Development
-- Create Architecture Diagram
-- Implement Basic Prototype
+* Repository Setup
+* Requirement Analysis Document
+* Initial Planning
