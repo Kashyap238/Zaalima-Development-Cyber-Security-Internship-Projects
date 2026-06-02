@@ -6,6 +6,10 @@ prompt = input("Enter Prompt: ")
 
 findings = gateway.detect_pii(prompt)
 
+prompt_findings = gateway.detect_prompt_injection(prompt)
+
+findings.extend(prompt_findings)
+
 sanitized = gateway.sanitize_prompt(prompt)
 
 print("\n===== Security Analysis =====")

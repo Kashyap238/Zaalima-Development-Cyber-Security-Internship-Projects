@@ -28,3 +28,23 @@ class SecurityGateway:
             file.write(f"Sanitized: {sanitized}\n")
             file.write(f"Findings: {findings}\n")
             file.write("-" * 50 + "\n")
+
+    def detect_prompt_injection(self, text):
+
+        suspicious_keywords = [
+            "ignore previous instructions",
+            "reveal passwords",
+            "bypass",
+            "system prompt",
+            "developer mode"
+        ]
+
+        findings = []
+
+        text_lower = text.lower()
+
+        for keyword in suspicious_keywords:
+            if keyword in text_lower:
+                findings.append("Possible Prompt Injection")
+
+        return findings

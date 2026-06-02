@@ -11,8 +11,8 @@ The objective of this internship is to gain practical experience in cybersecurit
 ## Team Members
 
 * Vineet Khatri
-* Kashyap
-* Sravani
+* Kashyap Shah
+* Sravani Bandlamoodi
 
 ---
 
