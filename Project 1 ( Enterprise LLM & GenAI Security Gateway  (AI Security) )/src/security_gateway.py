@@ -38,8 +38,9 @@ class SecurityGateway:
         suspicious_keywords = [
             "ignore previous instructions",
             "reveal passwords",
-            "bypass",
-            "system prompt",
+            "forget all instructions",
+            "bypass security",
+            "reveal system prompt",
             "developer mode"
         ]
 
@@ -49,6 +50,6 @@ class SecurityGateway:
 
         for keyword in suspicious_keywords:
             if keyword in text_lower:
-                findings.append("Possible Prompt Injection")
+                findings.append("Prompt Injection Attempt Detected")
 
         return findings
