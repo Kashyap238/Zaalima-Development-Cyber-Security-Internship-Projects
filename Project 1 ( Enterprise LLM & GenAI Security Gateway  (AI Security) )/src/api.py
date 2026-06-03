@@ -1,3 +1,5 @@
+#api.py
+
 from fastapi import FastAPI
 from security_gateway import SecurityGateway
 from fastapi import FastAPI, Header, HTTPException
@@ -29,6 +31,12 @@ def analyze(
     )
 
     sanitized = gateway.sanitize_prompt(prompt)
+
+    gateway.save_log(
+        prompt,
+        sanitized,
+        findings
+    )
 
     return {
         "original": prompt,
