@@ -12,11 +12,15 @@ class SecurityGateway:
         if re.search(r'\d{10}', text):
             findings.append("Phone Number Detected")
 
+        if re.search(r'\b\d{16}\b', text):
+            findings.append("Credit Card Detected")
+
         return findings
 
     def sanitize_prompt(self, text):
         text = re.sub(r'\S+@\S+', '[EMAIL]', text)
         text = re.sub(r'\d{10}', '[PHONE]', text)
+        text = re.sub(r'\b\d{16}\b', '[CREDIT_CARD]', text)
         return text
 
     def save_log(self, original, sanitized, findings):

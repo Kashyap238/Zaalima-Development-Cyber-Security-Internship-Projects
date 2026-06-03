@@ -22,3 +22,11 @@ Original: 1
 Sanitized: 1
 Findings: []
 --------------------------------------------------
+
+
+
+[2026-06-03 14:59:24.781289]
+Original: My card number is 1234567812345678
+Sanitized: My card number is [PHONE]345678
+Findings: ['Phone Number Detected', 'Credit Card Detected']
+--------------------------------------------------
