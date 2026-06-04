@@ -23,6 +23,12 @@ class SecurityGateway:
         if re.search(r'\b\d{4}\s\d{4}\s\d{4}\s\d{4}\b', text):
             findings.append("Formatted Credit Card Detected")
 
+        if re.search(r'\b\d{4}\s?\d{4}\s?\d{4}\b', text):
+            findings.append("Aadhaar Detected")
+
+        if re.search(r'\b(?:[0-9]{1,3}\.){3}[0-9]{1,3}\b', text):
+            findings.append("IP Address Detected")
+
         return findings
 
     def sanitize_prompt(self, text):
@@ -31,6 +37,8 @@ class SecurityGateway:
         text = re.sub(r'\b\d{16}\b', '[CREDIT_CARD]', text)
         text = re.sub(r'\b[A-Z]{5}[0-9]{4}[A-Z]\b','[PAN]',text)
         text = re.sub(r'\b\d{4}\s\d{4}\s\d{4}\s\d{4}\b','[CREDIT_CARD]',text)
+        text = re.sub(r'\b\d{4}\s?\d{4}\s?\d{4}\b','[AADHAAR]',text)
+        text = re.sub(r'\b(?:[0-9]{1,3}\.){3}[0-9]{1,3}\b','[IP_ADDRESS]',text)
         return text
 
     def save_log(self, original, sanitized, findings):
