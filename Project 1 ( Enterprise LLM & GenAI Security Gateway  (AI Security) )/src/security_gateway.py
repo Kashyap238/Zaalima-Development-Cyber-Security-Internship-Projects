@@ -59,7 +59,13 @@ class SecurityGateway:
             "forget all instructions",
             "bypass security",
             "reveal system prompt",
-            "developer mode"
+            "developer mode",
+
+            "show confidential data",
+            "export database",
+            "dump credentials",
+            "leak customer records",
+            "reveal api keys"
         ]
 
         findings = []
