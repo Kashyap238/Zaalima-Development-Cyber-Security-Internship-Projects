@@ -7,6 +7,7 @@ from fastapi import FastAPI, Header, HTTPException
 app = FastAPI()
 API_KEY = "zaalimasecurity123"
 gateway = SecurityGateway()
+request_counter = {}
 
 USER_ROLES = {
     "security_team": "admin",
@@ -73,4 +74,23 @@ def check_access(
         "team": team,
         "role": role,
         "status": "Access Granted"
+    }
+
+@app.get("/rate_limit")
+def rate_limit(user: str):
+
+    if user not in request_counter:
+        request_counter[user] = 0
+
+    request_counter[user] += 1
+
+    if request_counter[user] > 5:
+        return {
+            "status": "Blocked",
+            "message": "Rate Limit Exceeded"
+        }
+
+    return {
+        "status": "Allowed",
+        "request_count": request_counter[user]
     }
