@@ -94,3 +94,15 @@ def rate_limit(user: str):
         "status": "Allowed",
         "request_count": request_counter[user]
     }
+
+dashboard_stats = {
+    "total_requests": 57,
+    "pii_detections": 14,
+    "prompt_injections": 5,
+    "blocked_requests": 7
+}
+
+@app.get("/dashboard")
+def dashboard():
+
+    return dashboard_stats
