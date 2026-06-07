@@ -3,8 +3,10 @@
 from fastapi import FastAPI
 from security_gateway import SecurityGateway
 from fastapi import FastAPI, Header, HTTPException
+from database import create_database
 
 app = FastAPI()
+create_database()
 API_KEY = "zaalimasecurity123"
 gateway = SecurityGateway()
 request_counter = {}
@@ -40,6 +42,12 @@ def analyze(
     sanitized = gateway.sanitize_prompt(prompt)
 
     gateway.save_log(
+        prompt,
+        sanitized,
+        findings
+    )
+
+    gateway.save_to_database(
         prompt,
         sanitized,
         findings

@@ -1,6 +1,7 @@
 #security_gateway.py
 
 import re
+import sqlite3
 from datetime import datetime
 
 class SecurityGateway:
@@ -77,3 +78,34 @@ class SecurityGateway:
                 findings.append("Prompt Injection Attempt Detected")
 
         return findings
+    
+    def save_to_database(
+        self,
+        original,
+        sanitized,
+        findings
+        ):
+
+        conn = sqlite3.connect("security_logs.db")
+
+        cursor = conn.cursor()
+
+        cursor.execute(
+            """
+            INSERT INTO audit_logs
+            (
+                original_prompt,
+                sanitized_prompt,
+                findings
+            )
+            VALUES (?, ?, ?)
+            """,
+            (
+                original,
+                sanitized,
+            str(findings)
+            )
+        )
+
+        conn.commit()
+        conn.close()
