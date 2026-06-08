@@ -109,3 +109,23 @@ class SecurityGateway:
 
         conn.commit()
         conn.close()
+
+    def detect_unsafe_response(self, text):
+
+        blocked_keywords = [
+            "malware",
+            "ransomware",
+            "keylogger",
+            "steal passwords",
+            "exploit code"
+        ]
+
+        findings = []
+
+        text_lower = text.lower()
+
+        for keyword in blocked_keywords:
+            if keyword in text_lower:
+                findings.append("Unsafe Response Detected")
+
+        return findings

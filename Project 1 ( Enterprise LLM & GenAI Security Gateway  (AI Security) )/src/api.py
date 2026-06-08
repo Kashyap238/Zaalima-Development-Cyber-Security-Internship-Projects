@@ -114,3 +114,14 @@ dashboard_stats = {
 def dashboard():
 
     return dashboard_stats
+
+
+@app.post("/check_response")
+def check_response(response: str):
+
+    findings = gateway.detect_unsafe_response(response)
+
+    return {
+        "response": response,
+        "findings": findings
+    }
