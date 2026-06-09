@@ -4,6 +4,13 @@ import re
 import sqlite3
 from datetime import datetime
 
+dashboard_stats = {
+    "total_requests": 0,
+    "pii_detections": 0,
+    "prompt_injections": 0,
+    "blocked_requests": 0
+}
+
 class SecurityGateway:
 
     def detect_pii(self, text):
@@ -29,6 +36,9 @@ class SecurityGateway:
 
         if re.search(r'\b(?:[0-9]{1,3}\.){3}[0-9]{1,3}\b', text):
             findings.append("IP Address Detected")
+
+        if findings:
+            dashboard_stats["pii_detections"] += 1
 
         return findings
 
@@ -61,7 +71,6 @@ class SecurityGateway:
             "bypass security",
             "reveal system prompt",
             "developer mode",
-
             "show confidential data",
             "export database",
             "dump credentials",
@@ -76,6 +85,9 @@ class SecurityGateway:
         for keyword in suspicious_keywords:
             if keyword in text_lower:
                 findings.append("Prompt Injection Attempt Detected")
+
+        if findings:
+            dashboard_stats["prompt_injections"] += 1
 
         return findings
     
