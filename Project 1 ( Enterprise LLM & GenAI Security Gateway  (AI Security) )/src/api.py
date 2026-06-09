@@ -125,3 +125,21 @@ def check_response(response: str):
         "response": response,
         "findings": findings
     }
+
+
+@app.post("/proxy")
+def proxy_request(prompt: str):
+
+    findings = gateway.detect_pii(prompt)
+
+    findings.extend(
+        gateway.detect_prompt_injection(prompt)
+    )
+
+    sanitized = gateway.sanitize_prompt(prompt)
+
+    return {
+        "message": "Prompt forwarded to LLM",
+        "sanitized_prompt": sanitized,
+        "findings": findings
+    }
