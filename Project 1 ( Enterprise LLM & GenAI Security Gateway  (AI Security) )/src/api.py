@@ -141,5 +141,6 @@ def proxy_request(prompt: str):
     return {
         "message": "Prompt forwarded to LLM",
         "sanitized_prompt": sanitized,
+        "llm_response": "This is a simulated LLM response.",
         "findings": findings
     }
