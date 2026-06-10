@@ -7,6 +7,7 @@ from fastapi import FastAPI, Header, HTTPException
 from database import create_database
 from security_gateway import dashboard_stats
 from mock_llm import generate_response
+import sqlite3
 
 app = FastAPI()
 create_database()
@@ -165,4 +166,21 @@ def get_audit_logs():
 
     return {
         "logs": data
+    }
+
+
+@app.get("/export_logs")
+def export_logs():
+
+    conn = sqlite3.connect("security_logs.db")
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT * FROM audit_logs")
+
+    logs = cursor.fetchall()
+
+    conn.close()
+
+    return {
+        "audit_logs": logs
     }
