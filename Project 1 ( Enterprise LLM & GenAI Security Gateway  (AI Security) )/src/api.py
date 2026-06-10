@@ -219,3 +219,13 @@ def dashboard_history():
             "prompt_injections": dashboard_stats["prompt_injections"]
         }
     }
+
+
+@app.get("/version")
+def version():
+
+    return {
+        "project": "Enterprise LLM Security Gateway",
+        "version": "1.0",
+        "status": "Production Ready"
+    }
