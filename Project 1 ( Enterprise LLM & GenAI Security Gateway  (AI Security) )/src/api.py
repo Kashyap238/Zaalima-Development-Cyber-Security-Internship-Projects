@@ -1,5 +1,6 @@
 #api.py
 
+import os
 from fastapi import FastAPI
 from security_gateway import SecurityGateway
 from fastapi import FastAPI, Header, HTTPException
@@ -144,4 +145,20 @@ def proxy_request(prompt: str):
         "sanitized_prompt": sanitized,
         "llm_response": generate_response(sanitized),
         "findings": findings
+    }
+
+
+@app.get("/audit_logs")
+def get_audit_logs():
+
+    if not os.path.exists("audit_log.txt"):
+        return {
+            "message": "No logs found"
+        }
+
+    with open("audit_log.txt", "r") as file:
+        data = file.read()
+
+    return {
+        "logs": data
     }
