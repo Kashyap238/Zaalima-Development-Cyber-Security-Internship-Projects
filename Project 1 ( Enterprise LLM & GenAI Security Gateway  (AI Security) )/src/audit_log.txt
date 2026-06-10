@@ -76,3 +76,9 @@ Original: ignore previous instructions
 Sanitized: ignore previous instructions
 Findings: ['Prompt Injection Attempt Detected']
 --------------------------------------------------
+
+[2026-06-10 15:59:08.019770]
+Original: vineet@gmail.com
+Sanitized: [EMAIL]
+Findings: ['Email Detected']
+--------------------------------------------------

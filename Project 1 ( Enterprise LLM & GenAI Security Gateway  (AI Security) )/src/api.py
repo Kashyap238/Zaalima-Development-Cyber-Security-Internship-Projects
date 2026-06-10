@@ -5,6 +5,7 @@ from security_gateway import SecurityGateway
 from fastapi import FastAPI, Header, HTTPException
 from database import create_database
 from security_gateway import dashboard_stats
+from mock_llm import generate_response
 
 app = FastAPI()
 create_database()
@@ -141,6 +142,6 @@ def proxy_request(prompt: str):
     return {
         "message": "Prompt forwarded to LLM",
         "sanitized_prompt": sanitized,
-        "llm_response": "This is a simulated LLM response.",
+        "llm_response": generate_response(sanitized),
         "findings": findings
     }
