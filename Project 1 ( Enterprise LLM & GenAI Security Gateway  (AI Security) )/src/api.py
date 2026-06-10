@@ -207,3 +207,15 @@ def compliance_status():
         "Prompt Injection Detection": "Enabled",
         "Audit Logging": "Enabled"
     }
+
+
+@app.get("/dashboard/history")
+def dashboard_history():
+
+    return {
+        "last_24_hours": {
+            "requests": dashboard_stats["total_requests"],
+            "pii_events": dashboard_stats["pii_detections"],
+            "prompt_injections": dashboard_stats["prompt_injections"]
+        }
+    }
