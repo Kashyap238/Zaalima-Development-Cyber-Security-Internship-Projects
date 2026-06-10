@@ -52,6 +52,12 @@ def analyze(
     if prompt_findings:
         dashboard_stats["blocked_requests"] += 1
 
+        return {
+        "status": "Blocked",
+        "reason": "Prompt Injection Detected"
+        }
+
+
     sanitized = gateway.sanitize_prompt(prompt)
 
     gateway.save_log(
@@ -65,8 +71,6 @@ def analyze(
         sanitized,
         findings
     )
-
-    dashboard_stats["total_requests"] += 1
 
     return {
         "original": prompt,
