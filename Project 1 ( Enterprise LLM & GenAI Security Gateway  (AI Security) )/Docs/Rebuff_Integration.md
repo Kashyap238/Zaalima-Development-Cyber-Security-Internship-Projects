@@ -1,29 +1,22 @@
-# Rebuff Prompt Injection Protection
+# Rebuff Integration
 
 ## Purpose
 
-Rebuff is a security framework designed to detect prompt injection attacks against LLM systems.
+Rebuff provides additional protection against prompt injection attacks targeting LLM systems.
 
-## Planned Security Checks
+## Security Checks
 
-- Ignore previous instructions
-- Reveal system prompt
-- Developer mode attacks
-- Data exfiltration attempts
-- Jailbreak prompts
+- Ignore Previous Instructions
+- Reveal System Prompt
+- Developer Mode Activation
+- Bypass Security Attempts
 
-## Workflow
+## Current Status
 
-User Prompt
-    ↓
-Rebuff Analysis
-    ↓
-Threat Detection
-    ↓
-Block or Allow Request
+Rebuff package installed and validated.
 
-## Benefits
+Custom prompt injection detection remains active as the primary enforcement layer.
 
-- Improved prompt security
-- Reduced jailbreak risk
-- Enterprise AI governance
+## Expected Outcome
+
+Malicious prompts are blocked before reaching downstream LLM services.

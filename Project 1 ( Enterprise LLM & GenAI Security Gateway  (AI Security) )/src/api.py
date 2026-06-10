@@ -8,6 +8,8 @@ from database import create_database
 from security_gateway import dashboard_stats
 from mock_llm import generate_response
 import sqlite3
+from rebuff_detector import check_prompt
+
 
 app = FastAPI()
 create_database()
@@ -55,6 +57,15 @@ def analyze(
         return {
         "status": "Blocked",
         "reason": "Prompt Injection Detected"
+        }
+    
+    if check_prompt(prompt):
+
+        dashboard_stats["blocked_requests"] += 1
+
+        return {
+            "status": "Blocked",
+            "reason": "Rebuff Detection Triggered"
         }
 
 
