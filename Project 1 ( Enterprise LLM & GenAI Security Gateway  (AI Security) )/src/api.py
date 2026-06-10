@@ -66,6 +66,8 @@ def analyze(
         findings
     )
 
+    dashboard_stats["total_requests"] += 1
+
     return {
         "original": prompt,
         "sanitized": sanitized,
