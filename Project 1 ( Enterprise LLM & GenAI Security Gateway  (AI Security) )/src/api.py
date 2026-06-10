@@ -195,3 +195,15 @@ def health_check():
         "database": "Connected",
         "security_controls": "Active"
     }
+
+
+@app.get("/compliance")
+def compliance_status():
+
+    return {
+        "GDPR": "Supported",
+        "SOC2": "Supported",
+        "PII Protection": "Enabled",
+        "Prompt Injection Detection": "Enabled",
+        "Audit Logging": "Enabled"
+    }
