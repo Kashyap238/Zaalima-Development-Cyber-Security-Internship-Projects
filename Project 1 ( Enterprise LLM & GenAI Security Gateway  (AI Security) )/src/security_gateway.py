@@ -3,6 +3,7 @@
 import re
 import sqlite3
 from datetime import datetime
+from presidio_analyzer import AnalyzerEngine
 
 dashboard_stats = {
     "total_requests": 0,
@@ -139,5 +140,25 @@ class SecurityGateway:
         for keyword in blocked_keywords:
             if keyword in text_lower:
                 findings.append("Unsafe Response Detected")
+
+        return findings
+    
+
+    def __init__(self):
+        self.analyzer = AnalyzerEngine()
+
+
+
+    def detect_pii_presidio(self, text):
+
+        results = self.analyzer.analyze(
+            text=text,
+            language="en"
+        )
+
+        findings = []
+
+        for item in results:
+            findings.append(item.entity_type)
 
         return findings

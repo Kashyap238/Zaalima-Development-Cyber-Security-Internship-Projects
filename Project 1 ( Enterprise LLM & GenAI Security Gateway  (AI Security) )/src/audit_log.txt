@@ -82,3 +82,9 @@ Original: vineet@gmail.com
 Sanitized: [EMAIL]
 Findings: ['Email Detected']
 --------------------------------------------------
+
+[2026-06-10 19:43:43.454850]
+Original: My email is vineet@gmail.com
+Sanitized: My email is [EMAIL]
+Findings: ['Email Detected', 'EMAIL_ADDRESS', 'URL']
+--------------------------------------------------

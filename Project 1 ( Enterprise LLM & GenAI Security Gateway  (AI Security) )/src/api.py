@@ -40,6 +40,10 @@ def analyze(
 
     findings = gateway.detect_pii(prompt)
 
+    presidio_findings = gateway.detect_pii_presidio(prompt)
+
+    findings.extend(presidio_findings)
+
     prompt_findings = gateway.detect_prompt_injection(prompt)
 
     findings.extend(prompt_findings)
