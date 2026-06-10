@@ -235,3 +235,14 @@ def version():
         "version": "1.0",
         "status": "Production Ready"
     }
+
+
+@app.get("/metrics")
+def metrics():
+
+    return {
+        "total_requests": dashboard_stats["total_requests"],
+        "blocked_requests": dashboard_stats["blocked_requests"],
+        "pii_detections": dashboard_stats["pii_detections"],
+        "prompt_injections": dashboard_stats["prompt_injections"]
+    }
