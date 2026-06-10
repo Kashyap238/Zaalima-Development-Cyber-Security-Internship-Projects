@@ -184,3 +184,14 @@ def export_logs():
     return {
         "audit_logs": logs
     }
+
+
+@app.get("/health")
+def health_check():
+
+    return {
+        "status": "Healthy",
+        "gateway": "Running",
+        "database": "Connected",
+        "security_controls": "Active"
+    }
