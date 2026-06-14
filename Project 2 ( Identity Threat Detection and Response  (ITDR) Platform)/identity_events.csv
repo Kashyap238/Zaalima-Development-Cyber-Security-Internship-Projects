@@ -1,0 +1,7 @@
+user,location,time,event
+vineet,India,09:00,Login
+vineet,USA,09:10,Login
+admin,India,10:00,Password Reset
+developer,India,11:00,MFA Request
+developer,India,11:01,MFA Request
+developer,India,11:02,MFA Request
