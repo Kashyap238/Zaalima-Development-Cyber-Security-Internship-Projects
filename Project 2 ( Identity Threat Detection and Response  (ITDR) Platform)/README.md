@@ -1,28 +1,26 @@
-Identity Threat Detection and Response (ITDR) Platform
+# Identity Threat Detection and Response (ITDR) Platform
 
-Objective
+## Objective
 
-Build an Identity Threat Detection and Response platform capable of monitoring identity events, detecting suspicious behavior, identifying compromised accounts, and visualizing the impact of identity-based attacks.
+Develop a platform capable of detecting identity-based attacks such as impossible travel, MFA fatigue, privilege escalation, and suspicious login activity.
 
-Technologies
+## Technologies
 
-- Python
-- Pandas
-- Scikit-learn
-- Neo4j (Planned)
-- Elasticsearch (Planned)
+* Python
+* FastAPI
+* Pandas
+* Scikit-learn
 
-Planned Features
+## Planned Features
 
-- Identity Event Ingestion
-- Blast Radius Mapping
-- Impossible Travel Detection
-- MFA Fatigue Detection
-- Privilege Escalation Detection
-- Behavioral Analytics
-- Automated Response Actions
-- Security Dashboard
+* Identity Event Ingestion
+* Impossible Travel Detection
+* MFA Fatigue Detection
+* Privilege Escalation Detection
+* Behavioral Analytics
+* Blast Radius Analysis
+* Security Dashboard
 
-Status
+## Status
 
-Planning Phase Started
+Planning and Initial Development Started

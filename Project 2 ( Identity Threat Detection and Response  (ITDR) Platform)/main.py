@@ -1,1 +1,1 @@
-
+print("ITDR Platform Started")
