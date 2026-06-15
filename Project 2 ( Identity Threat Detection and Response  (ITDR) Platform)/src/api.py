@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from risk_engine import get_risk_scores
+from high_risk_engine import get_high_risk_users
 
 app = FastAPI()
 
@@ -50,3 +51,9 @@ def blast_radius():
 def risk_scores():
 
     return get_risk_scores()
+
+
+@app.get("/high_risk_users")
+def high_risk_users():
+
+    return get_high_risk_users()
