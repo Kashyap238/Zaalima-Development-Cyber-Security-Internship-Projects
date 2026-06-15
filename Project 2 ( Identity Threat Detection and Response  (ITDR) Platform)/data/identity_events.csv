@@ -5,3 +5,6 @@ admin,India,10:00,Password Reset
 developer,India,11:00,MFA Request
 developer,India,11:01,MFA Request
 developer,India,11:02,MFA Request
+admin,India,12:00,Role Change
+developer,India,12:05,Role Change
+intern,India,12:10,Privilege Escalation
