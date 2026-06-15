@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from risk_engine import get_risk_scores
 
 app = FastAPI()
 
@@ -43,3 +44,9 @@ def blast_radius():
             "Security Dashboard"
         ]
     }
+
+
+@app.get("/risk_scores")
+def risk_scores():
+
+    return get_risk_scores()
