@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from risk_engine import get_risk_scores
 from high_risk_engine import get_high_risk_users
+import sqlite3
 
 app = FastAPI()
 
@@ -57,3 +58,23 @@ def risk_scores():
 def high_risk_users():
 
     return get_high_risk_users()
+
+
+@app.get("/stored_alerts")
+def stored_alerts():
+
+    conn = sqlite3.connect("itdr.db")
+
+    cursor = conn.cursor()
+
+    cursor.execute(
+        "SELECT * FROM alerts"
+    )
+
+    rows = cursor.fetchall()
+
+    conn.close()
+
+    return {
+        "alerts": rows
+    }
