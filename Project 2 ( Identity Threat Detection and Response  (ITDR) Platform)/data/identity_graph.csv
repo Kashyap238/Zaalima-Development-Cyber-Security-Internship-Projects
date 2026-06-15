@@ -1,0 +1,11 @@
+source,target,relationship
+admin,Domain Admins,member_of
+Domain Admins,Production AWS,access_to
+Domain Admins,Security Dashboard,access_to
+
+developer,Dev Team,member_of
+Dev Team,Git Repository,access_to
+Dev Team,Dev Server,access_to
+
+intern,Documentation Team,member_of
+Documentation Team,Documentation Portal,access_to
