@@ -3,6 +3,7 @@ from risk_engine import get_risk_scores
 from high_risk_engine import get_high_risk_users
 import sqlite3
 from db_config import DB_PATH
+from critical_accounts_engine import get_critical_accounts
 
 app = FastAPI()
 
@@ -130,4 +131,13 @@ def soc_dashboard():
         "high_risk_users": high_risk_users,
         "highest_risk_score": highest_risk,
         "platform_status": "Active"
+    }
+
+
+@app.get("/critical_accounts")
+def critical_accounts():
+
+    return {
+        "critical_accounts":
+        get_critical_accounts()
     }
