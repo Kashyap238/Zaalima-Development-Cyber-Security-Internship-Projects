@@ -1,6 +1,7 @@
 import sqlite3
+from db_config import DB_PATH
 
-conn = sqlite3.connect("itdr.db")
+conn = sqlite3.connect(DB_PATH)
 
 cursor = conn.cursor()
 

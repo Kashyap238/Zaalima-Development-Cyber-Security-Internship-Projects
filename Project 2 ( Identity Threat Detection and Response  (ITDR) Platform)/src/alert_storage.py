@@ -1,4 +1,5 @@
 import sqlite3
+from db_config import DB_PATH
 
 def save_alert(
     user,
@@ -6,7 +7,7 @@ def save_alert(
     risk_score
 ):
 
-    conn = sqlite3.connect("itdr.db")
+    conn = sqlite3.connect(DB_PATH)
 
     cursor = conn.cursor()
 

@@ -1,4 +1,5 @@
 import sqlite3
+from db_config import DB_PATH
 
 def create_risk_table():
 
