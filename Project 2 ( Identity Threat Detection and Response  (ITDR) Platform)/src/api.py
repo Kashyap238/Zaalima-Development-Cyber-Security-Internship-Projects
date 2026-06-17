@@ -99,3 +99,35 @@ def risk_scores_db():
     return {
         "risk_scores": rows
     }
+
+
+@app.get("/soc_dashboard")
+def soc_dashboard():
+
+    conn = sqlite3.connect(DB_PATH)
+
+    cursor = conn.cursor()
+
+    cursor.execute(
+        "SELECT COUNT(*) FROM alerts"
+    )
+    total_alerts = cursor.fetchone()[0]
+
+    cursor.execute(
+        "SELECT COUNT(*) FROM risk_scores WHERE risk_score >= 50"
+    )
+    high_risk_users = cursor.fetchone()[0]
+
+    cursor.execute(
+        "SELECT MAX(risk_score) FROM risk_scores"
+    )
+    highest_risk = cursor.fetchone()[0]
+
+    conn.close()
+
+    return {
+        "total_alerts": total_alerts,
+        "high_risk_users": high_risk_users,
+        "highest_risk_score": highest_risk,
+        "platform_status": "Active"
+    }
