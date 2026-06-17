@@ -8,3 +8,8 @@ developer,India,11:02,MFA Request
 admin,India,12:00,Role Change
 developer,India,12:05,Role Change
 intern,India,12:10,Privilege Escalation
+attacker,India,13:00,Failed Login
+attacker,India,13:01,Failed Login
+attacker,India,13:02,Failed Login
+attacker,India,13:03,Failed Login
+attacker,India,13:04,Failed Login
