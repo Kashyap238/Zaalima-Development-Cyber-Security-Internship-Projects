@@ -4,6 +4,7 @@ from high_risk_engine import get_high_risk_users
 import sqlite3
 from db_config import DB_PATH
 from critical_accounts_engine import get_critical_accounts
+from platform_info import platform_info
 
 app = FastAPI()
 
@@ -141,3 +142,8 @@ def critical_accounts():
         "critical_accounts":
         get_critical_accounts()
     }
+
+@app.get("/platform_info")
+def get_platform_info():
+
+    return platform_info()
