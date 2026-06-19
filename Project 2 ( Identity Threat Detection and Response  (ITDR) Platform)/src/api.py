@@ -156,3 +156,13 @@ def anomalies():
         "anomalies":
         get_anomalies()
     }
+
+@app.get("/report")
+def report():
+
+    return {
+        "platform_status": "Active",
+        "high_risk_users": len(get_high_risk_users()),
+        "critical_accounts": len(get_critical_accounts()),
+        "anomalies": len(get_anomalies())
+    }
