@@ -1,7 +1,7 @@
 import pandas as pd
 import os
 
-def contain_hosts():
+def suspend_users():
 
     current_dir = os.path.dirname(__file__)
 
@@ -14,19 +14,15 @@ def contain_hosts():
 
     data = pd.read_csv(csv_path)
 
-    print("\n=== Containment Actions ===\n")
+    print("\n=== User Suspension ===\n")
 
     for _, row in data.iterrows():
 
-        if row["severity"] in [
-            "High",
-            "Critical"
-        ]:
+        if row["severity"] == "Critical":
 
             print(
-                f"Host {row['hostname']} "
-                f"isolated from network"
+                f"User {row['user']} suspended"
             )
 
 if __name__ == "__main__":
-    contain_hosts()
+    suspend_users()
