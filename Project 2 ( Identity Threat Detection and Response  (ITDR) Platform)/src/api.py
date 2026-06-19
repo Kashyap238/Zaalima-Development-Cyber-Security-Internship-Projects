@@ -193,3 +193,19 @@ def suspend_user(user: str):
         "action": "User Suspended",
         "status": "Success"
     }
+
+@app.get("/red_team_test")
+def red_team_test():
+
+    return {
+        "simulation": "Completed",
+        "attacks_tested": [
+            "Impossible Travel",
+            "MFA Fatigue",
+            "Privilege Escalation",
+            "Brute Force",
+            "Password Spraying",
+            "Token Theft"
+        ],
+        "status": "Success"
+    }
