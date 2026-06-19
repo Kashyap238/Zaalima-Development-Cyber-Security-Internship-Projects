@@ -5,6 +5,7 @@ import sqlite3
 from db_config import DB_PATH
 from critical_accounts_engine import get_critical_accounts
 from platform_info import platform_info
+from anomaly_engine import get_anomalies
 
 app = FastAPI()
 
@@ -147,3 +148,11 @@ def critical_accounts():
 def get_platform_info():
 
     return platform_info()
+
+@app.get("/anomalies")
+def anomalies():
+
+    return {
+        "anomalies":
+        get_anomalies()
+    }
