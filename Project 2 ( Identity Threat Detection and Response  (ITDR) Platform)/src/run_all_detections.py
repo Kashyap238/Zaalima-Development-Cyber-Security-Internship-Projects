@@ -3,6 +3,7 @@ from mfa_fatigue import detect_mfa_fatigue
 from privilege_escalation import detect_privilege_escalation
 from brute_force_detection import detect_brute_force
 from password_spraying import detect_password_spraying
+from token_theft_detection import detect_token_theft
 
 print("\n===== ITDR Detection Engine =====\n")
 
@@ -22,3 +23,6 @@ print("\nRunning Password Spraying Detection...")
 detect_password_spraying()
 
 print("\n===== Detection Complete =====")
+
+print("\nRunning Token Theft Detection...")
+detect_token_theft()
