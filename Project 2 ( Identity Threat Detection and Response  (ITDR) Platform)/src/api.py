@@ -166,3 +166,30 @@ def report():
         "critical_accounts": len(get_critical_accounts()),
         "anomalies": len(get_anomalies())
     }
+
+@app.post("/reset_password")
+def reset_password(user: str):
+
+    return {
+        "user": user,
+        "action": "Password Reset",
+        "status": "Success"
+    }
+
+@app.post("/revoke_sessions")
+def revoke_sessions(user: str):
+
+    return {
+        "user": user,
+        "action": "Sessions Revoked",
+        "status": "Success"
+    }
+
+@app.post("/suspend_user")
+def suspend_user(user: str):
+
+    return {
+        "user": user,
+        "action": "User Suspended",
+        "status": "Success"
+    }
