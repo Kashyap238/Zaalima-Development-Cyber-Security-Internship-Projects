@@ -1,0 +1,4 @@
+hostname,ip,user,severity,threat
+PC-001,192.168.1.10,vineet,High,Ransomware
+PC-002,192.168.1.20,admin,Critical,Hands-On-Keyboard
+PC-003,192.168.1.30,developer,Medium,Malware
