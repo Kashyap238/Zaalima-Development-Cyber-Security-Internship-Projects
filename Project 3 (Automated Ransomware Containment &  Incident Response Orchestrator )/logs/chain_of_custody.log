@@ -1,0 +1,6 @@
+=== Chain of Custody Log ===
+
+2026-06-20 19:50:31.865033 | PC-001 | Memory Dump Collected
+2026-06-20 19:50:31.865187 | PC-001 | Forensic Artifacts Collected
+2026-06-20 19:50:31.865597 | PC-002 | Memory Dump Collected
+2026-06-20 19:50:31.865688 | PC-002 | Forensic Artifacts Collected
