@@ -38,3 +38,27 @@ def incident_response_status():
         "Playbook Executed Successfully"
     }
 
+@app.get("/project_status")
+def project_status():
+
+    return {
+        "project":
+        "Automated Ransomware Containment & Incident Response Orchestrator",
+
+        "version": "1.0",
+
+        "containment":
+        "Enabled",
+
+        "forensics":
+        "Enabled",
+
+        "ticketing":
+        "Enabled",
+
+        "notifications":
+        "Enabled",
+
+        "status":
+        "Operational"
+    }
