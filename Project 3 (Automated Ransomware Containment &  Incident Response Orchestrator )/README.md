@@ -21,3 +21,14 @@ Automate ransomware detection and containment processes.
 ## Status
 
 Planning Phase
+
+## Future Enhancements
+
+- CrowdStrike Falcon API Integration
+- Microsoft Defender API Integration
+- AWS S3 Evidence Storage
+- Jira Ticketing Integration
+- Slack Notifications
+- ServiceNow Integration
+- AWS Lambda Automation
+- Real-time Webhook Processing
