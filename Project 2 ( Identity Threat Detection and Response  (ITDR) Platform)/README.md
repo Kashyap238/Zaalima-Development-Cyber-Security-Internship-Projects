@@ -1,26 +1,31 @@
-# Identity Threat Detection and Response (ITDR) Platform
+# Identity Threat Detection and Response (ITDR)
 
-## Objective
+## Overview
 
-Develop a platform capable of detecting identity-based attacks such as impossible travel, MFA fatigue, privilege escalation, and suspicious login activity.
+An identity-centric security platform designed to detect suspicious account activity, privilege abuse, token theft, and identity-based attacks.
 
-## Technologies
+## Features
 
-* Python
-* FastAPI
-* Pandas
-* Scikit-learn
+- Impossible Travel Detection
+- MFA Fatigue Detection
+- Brute Force Detection
+- Password Spraying Detection
+- Privilege Escalation Detection
+- Token Theft Detection
+- Risk Scoring
+- ML Anomaly Detection
 
-## Planned Features
+## Tech Stack
 
-* Identity Event Ingestion
-* Impossible Travel Detection
-* MFA Fatigue Detection
-* Privilege Escalation Detection
-* Behavioral Analytics
-* Blast Radius Analysis
-* Security Dashboard
+- Python
+- FastAPI
+- Pandas
+- Scikit-Learn
+- SQLite
 
-## Status
+## Future Enhancements
 
-Planning and Initial Development Started
+- Neo4j
+- Kafka
+- Azure AD Integration
+- Okta Integration
