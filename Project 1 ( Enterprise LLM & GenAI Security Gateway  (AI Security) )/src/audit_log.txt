@@ -106,3 +106,9 @@ Original: vineet@gmail.com
 Sanitized: [EMAIL]
 Findings: ['Email Detected', 'EMAIL_ADDRESS', 'URL']
 --------------------------------------------------
+
+[2026-06-26 19:44:57.715974]
+Original: 1234567843218765
+Sanitized: [PHONE]218765
+Findings: ['Phone Number Detected', 'Credit Card Detected', 'DATE_TIME', 'US_BANK_NUMBER', 'US_DRIVER_LICENSE']
+--------------------------------------------------

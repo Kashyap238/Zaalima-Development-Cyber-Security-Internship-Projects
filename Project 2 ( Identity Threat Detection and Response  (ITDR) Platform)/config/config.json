@@ -1,0 +1,11 @@
+{
+    "risk_threshold": 80,
+    "failed_login_threshold": 5,
+    "password_spray_threshold": 5,
+    "mfa_fatigue_threshold": 3,
+    "impossible_travel_distance_km": 500,
+    "high_risk_score": 90,
+    "critical_risk_score": 100,
+    "database_name": "itdr.db",
+    "log_level": "INFO"
+}
