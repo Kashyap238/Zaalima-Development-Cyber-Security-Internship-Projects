@@ -10,5 +10,11 @@
         "user": "admin",
         "event": "Privilege Escalation",
         "severity": "Critical"
+    },
+    {
+        "timestamp": "2026-07-03 20:28:39",
+        "user": "attacker",
+        "event": "Brute Force Attack",
+        "severity": "High"
     }
 ]

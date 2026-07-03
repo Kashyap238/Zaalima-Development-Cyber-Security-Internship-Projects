@@ -1,5 +1,6 @@
 import pandas as pd
 import os
+from incident_timeline import log_incident 
 
 def detect_brute_force():
 
@@ -28,8 +29,12 @@ def detect_brute_force():
 
             if failed_logins[user] >= 5:
 
-                print(
-                    f"Brute Force Attack Detected: {user}"
+                print(f"Brute Force Attack Detected: {user}")
+
+                log_incident(
+                    user=user,
+                    event="Brute Force Attack",
+                    severity="High"
                 )
 
 if __name__ == "__main__":
