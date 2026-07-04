@@ -1,5 +1,8 @@
+#impossible_travel_detecttion
+
 import pandas as pd
 import os
+from incident_timeline import log_incident
 
 def detect_impossible_travel():
 
@@ -30,6 +33,12 @@ def detect_impossible_travel():
                 f"Impossible Travel Detected: "
                 f"{user} logged in from "
                 f"{users[user]} and {location}"
+            )
+
+            log_incident(
+                user=user,
+                event="Impossible Travel",
+                severity="High"
             )
 
 if __name__ == "__main__":

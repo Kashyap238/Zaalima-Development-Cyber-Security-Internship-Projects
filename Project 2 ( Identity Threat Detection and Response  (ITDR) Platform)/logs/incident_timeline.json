@@ -16,5 +16,17 @@
         "user": "attacker",
         "event": "Brute Force Attack",
         "severity": "High"
+    },
+    {
+        "timestamp": "2026-07-04 20:20:42",
+        "user": "vineet",
+        "event": "Impossible Travel",
+        "severity": "High"
+    },
+    {
+        "timestamp": "2026-07-04 20:20:42",
+        "user": "vineet",
+        "event": "Impossible Travel",
+        "severity": "High"
     }
 ]
