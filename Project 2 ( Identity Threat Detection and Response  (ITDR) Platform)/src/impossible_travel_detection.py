@@ -2,7 +2,7 @@
 
 import pandas as pd
 import os
-from incident_timeline import log_incident
+from alert_manager import raise_alert
 
 def detect_impossible_travel():
 
@@ -29,16 +29,15 @@ def detect_impossible_travel():
 
         elif users[user] != location:
 
-            print(
-                f"Impossible Travel Detected: "
-                f"{user} logged in from "
-                f"{users[user]} and {location}"
-            )
-
-            log_incident(
+            raise_alert(
                 user=user,
                 event="Impossible Travel",
-                severity="High"
+                severity="High",
+                message=(
+                    f"Impossible Travel Detected: "
+                    f"{user} logged in from "
+                    f"{users[user]} and {location}"
+                )
             )
 
 if __name__ == "__main__":
