@@ -1,0 +1,39 @@
+{
+    "total_incidents": 5,
+    "critical": 1,
+    "high": 4,
+    "medium": 0,
+    "low": 0,
+    "incidents": [
+        {
+            "timestamp": "2026-07-03 20:07:09",
+            "user": "vineet",
+            "event": "Impossible Travel",
+            "severity": "High"
+        },
+        {
+            "timestamp": "2026-07-03 20:07:09",
+            "user": "admin",
+            "event": "Privilege Escalation",
+            "severity": "Critical"
+        },
+        {
+            "timestamp": "2026-07-03 20:28:39",
+            "user": "attacker",
+            "event": "Brute Force Attack",
+            "severity": "High"
+        },
+        {
+            "timestamp": "2026-07-04 20:20:42",
+            "user": "vineet",
+            "event": "Impossible Travel",
+            "severity": "High"
+        },
+        {
+            "timestamp": "2026-07-04 20:20:42",
+            "user": "vineet",
+            "event": "Impossible Travel",
+            "severity": "High"
+        }
+    ]
+}
