@@ -32,7 +32,6 @@ def detect_brute_force():
                 raise_alert(
                     user=user,
                     event="Brute Force Attack",
-                    severity="High",
                     message=f"Brute Force Attack Detected: {user}"
                 )
 
