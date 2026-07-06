@@ -1,6 +1,8 @@
 import pandas as pd
 import os
 
+from risk_engine import get_risk_scores
+
 def generate_alerts():
 
     current_dir = os.path.dirname(__file__)
@@ -18,6 +20,10 @@ def generate_alerts():
 
     users = {}
 
+    impossible_travel_count = 0
+    mfa_fatigue_count = 0
+    privilege_count = 0
+
     for _, row in data.iterrows():
 
         user = row["user"]
@@ -27,9 +33,12 @@ def generate_alerts():
             users[user] = location
 
         elif users[user] != location:
+
             alerts.append(
                 f"Impossible Travel Detected: {user}"
             )
+
+            impossible_travel_count += 1
 
     mfa_counts = {}
 
@@ -49,6 +58,8 @@ def generate_alerts():
                     f"MFA Fatigue Attack: {user}"
                 )
 
+                mfa_fatigue_count += 1
+
     for _, row in data.iterrows():
 
         if row["event"] == "Privilege Escalation":
@@ -57,10 +68,41 @@ def generate_alerts():
                 f"Privilege Escalation: {row['user']}"
             )
 
-    print("\n=== ITDR Threat Dashboard ===\n")
+            privilege_count += 1
+
+    risk_scores = get_risk_scores()
+
+    highest_user = max(
+        risk_scores,
+        key=risk_scores.get
+    )
+
+    highest_score = risk_scores[highest_user]
+
+    print("\n======================================")
+    print("         ITDR SOC DASHBOARD")
+    print("======================================\n")
+
+    print(f"Total Users              : {len(risk_scores)}")
+    print(f"Total Alerts             : {len(alerts)}")
+
+    print("\nAttack Summary")
+
+    print(f"Impossible Travel        : {impossible_travel_count}")
+    print(f"MFA Fatigue              : {mfa_fatigue_count}")
+    print(f"Privilege Escalation     : {privilege_count}")
+
+    print("\nHighest Risk User")
+
+    print(f"User                     : {highest_user}")
+    print(f"Risk Score               : {highest_score}")
+
+    print("\nCurrent Alerts")
 
     for alert in alerts:
-        print(alert)
+        print(f"- {alert}")
+
+    print("\n======================================")
 
 if __name__ == "__main__":
     generate_alerts()
