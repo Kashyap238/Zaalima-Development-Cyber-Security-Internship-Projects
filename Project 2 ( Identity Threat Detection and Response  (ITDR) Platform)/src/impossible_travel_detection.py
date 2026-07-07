@@ -32,7 +32,6 @@ def detect_impossible_travel():
             raise_alert(
                 user=user,
                 event="Impossible Travel",
-                severity="High",
                 message=(
                     f"Impossible Travel Detected: "
                     f"{user} logged in from "

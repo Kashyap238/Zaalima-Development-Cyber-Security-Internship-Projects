@@ -1,9 +1,9 @@
 {
-    "total_incidents": 5,
+    "total_incidents": 6,
     "critical": 1,
     "high": 4,
     "medium": 0,
-    "low": 0,
+    "low": 1,
     "incidents": [
         {
             "timestamp": "2026-07-03 20:07:09",
@@ -34,6 +34,12 @@
             "user": "vineet",
             "event": "Impossible Travel",
             "severity": "High"
+        },
+        {
+            "timestamp": "2026-07-07 20:27:24",
+            "user": "attacker",
+            "event": "Brute Force Attack",
+            "severity": "Low"
         }
     ]
 }
