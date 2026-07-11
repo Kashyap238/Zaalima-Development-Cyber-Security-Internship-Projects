@@ -2,6 +2,8 @@
 
 from fastapi import FastAPI
 from dashboard import dashboard_stats
+from incident_summary import generate_summary
+from response_metrics import response_metrics
 
 app = FastAPI()
 
@@ -63,4 +65,22 @@ def project_status():
 
         "status":
         "Operational"
+    }
+
+@app.get("/incident_summary")
+def incident_summary():
+
+    generate_summary()
+
+    return {
+        "status": "Incident Summary Generated"
+    }
+
+@app.get("/response_metrics")
+def metrics():
+
+    response_metrics()
+
+    return {
+        "status": "Response Metrics Generated"
     }
